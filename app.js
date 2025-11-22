@@ -15,7 +15,7 @@ function displayTask() {
         
         const taskHTML = `
             <li class="task"">
-                    <input class="checkbox" type="checkbox" id="task">
+                    <input class="checkbox" type="checkbox" id="task" ${task.isDone ? 'checked' : ''}>
                     <label for="task">${task.taskName}</label>
                     <button class="delete-task">Delete</button>
             </li>
@@ -30,6 +30,17 @@ function displayTask() {
         button.addEventListener('click', () => {
             tasks.splice(index, 1);
             displayTask();
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        })
+    })
+
+    document.querySelectorAll('.checkbox').forEach((checkbox, index) => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                console.log('checked');
+                tasks[index].isDone = checkbox.checked;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
         })
     })
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -40,7 +51,9 @@ function addTask() {
 
     if (taskInput.value) {
         const taskName = taskInput.value;
-        tasks.push({taskName})
+        tasks.push( { 
+            taskName,
+            isDone: false } )
         console.log(tasks); 
 
     } else {
@@ -52,61 +65,5 @@ function addTask() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-
-
 displayTask();
 
-
-
-
-
-
-
-
-
-// function displayTask () {
-   
-
-// }
-
-
-
-
-// function addTask(task) {
-
-    
-//     taskHTML += `
-//                 <li class="task">
-//                     <input class="checkbox" type="checkbox" id="task">
-//                     <label for="task">${task}</label>
-//                     <button class="delete-task">Delete</button>
-//                 </li>
-//                 `;
-//     displayTask();
-
-
-//         // const list = document.querySelector('.task-list');
-//         // const li = document.createElement("li");
-//         // li.classList.add("task");
-
-//         // li.innerHTML = `
-//         //                 <input class="checkbox" type="checkbox" id="task">
-//         //                 <label for="task">${task}</label>
-//         //                 <button class="delete-task">Delete</button>
-//         //             `;
-//         // list.append(li);
-    
-//     // const deleteButton = li.querySelector('.delete-task');
-//     // deleteButton.addEventListener('click', deleteTask);
-// }
-    
-
-
-
-    
-
-// function deleteTask(index) { 
-//         console.log('Deleted.');
-//         tasks.splice(index,1);
-//         console.log(tasks);
-// }
