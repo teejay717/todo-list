@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="title-container">
+            <p>Todo List</p>
+        </div>
+        <div class="task-input-container">
+            <input id="input-box" class="input-box box" type="text" placeholder="Enter task">
+            <button class="add-button box">Add</button>
+        </div>
+        <div class="task-list-container">
+            <ul class="task-list">
+                <li class="task" style="display: none;">
+                    <input class="checkbox" type="checkbox" id="task">
+                    <label for="task">Task #1</label>
+                    <button class="delete-task">Delete</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
