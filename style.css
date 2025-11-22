@@ -98,5 +98,9 @@ body {
     background-color: hsl(0, 1%, 17%);
 }
 
+.checked {
+    color: red;
+}
+
 
 

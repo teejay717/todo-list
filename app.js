@@ -44,6 +44,7 @@ function displayTask() {
         })
     })
     localStorage.setItem('tasks', JSON.stringify(tasks));
+    
 }
 
 function addTask() {
