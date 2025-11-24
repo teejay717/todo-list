@@ -16,7 +16,7 @@ function displayTask() {
         const taskHTML = `
             <li class="task"">
                     <input class="checkbox" type="checkbox" id="task" ${task.isDone ? 'checked' : ''}>
-                    <label for="task">${task.taskName}</label>
+                    <label class="task-label" for="task">${task.taskName}</label>
                     <button class="delete-task">Delete</button>
             </li>
         `
@@ -36,11 +36,16 @@ function displayTask() {
 
     document.querySelectorAll('.checkbox').forEach((checkbox, index) => {
         checkbox.addEventListener('change', () => {
+            
+            tasks[index].isDone = checkbox.checked;
+            const label = checkbox.nextElementSibling;
+
             if (checkbox.checked) {
-                console.log('checked');
-                tasks[index].isDone = checkbox.checked;
-                localStorage.setItem('tasks', JSON.stringify(tasks));
+                label.classList.add("done");
+            } else {   
+                label.classList.remove("done");
             }
+            
         })
     })
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -66,5 +71,15 @@ function addTask() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-displayTask();
 
+
+function doneTask() {
+    tasks.forEach((task) => {
+        if (tasks.isDone) {
+            console.log('hello');
+        }
+    })
+}
+
+displayTask();
+doneTask();
