@@ -32,9 +32,15 @@ body {
 .title-container {
     color: white;
     padding: 30px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-align: center;
     font-weight: bold;
+}
+
+.title-container p {
+    color: grey;
+    font-weight: normal;
+    font-style: italic;
 }
 
 .task-input-container {

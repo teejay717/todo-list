@@ -1,13 +1,16 @@
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 const addButton = document.querySelector('.add-button');
+const input = document.querySelector('.input-box');
 
 addButton.addEventListener('click', () => {
     addTask();
 })
 
-addButton.addEventListener('click', () => {
-    addTask();
+input.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter'|| event.keyCode === 13) {
+        addTask();
+    }
 })
 
 function displayTask() {
