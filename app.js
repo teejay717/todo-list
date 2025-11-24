@@ -6,6 +6,10 @@ addButton.addEventListener('click', () => {
     addTask();
 })
 
+addButton.addEventListener('click', () => {
+    addTask();
+})
+
 function displayTask() {
     const list = document.querySelector('.task-list');
 
@@ -72,14 +76,4 @@ function addTask() {
 }
 
 
-
-function doneTask() {
-    tasks.forEach((task) => {
-        if (tasks.isDone) {
-            console.log('hello');
-        }
-    })
-}
-
 displayTask();
-doneTask();
