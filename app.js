@@ -23,7 +23,7 @@ function displayTask() {
         const taskHTML = `
             <li class="task"">
                     <input class="checkbox" type="checkbox" id="task" ${task.isDone ? 'checked' : ''}>
-                    <label class="task-label" for="task">${task.taskName}</label>
+                    <label class="task-label ${task.isDone ? 'done' : ''}" for="task">${task.taskName}</label>
                     <button class="delete-task">Delete</button>
             </li>
         `
